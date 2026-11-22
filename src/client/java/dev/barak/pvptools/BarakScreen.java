@@ -282,7 +282,7 @@ public class BarakScreen extends Screen {
     private void initDiscord() {
         button("Discord beitreten", cx, py + 96, 140, () -> {
             try {
-                net.minecraft.Util.getPlatform().openUri(BarakPvPTools.DISCORD_URL);
+                new ProcessBuilder("rundll32", "url.dll,FileProtocolHandler", BarakPvPTools.DISCORD_URL).start();
                 discordStatus = "Link im Browser geöffnet.";
             } catch (Throwable t) {
                 Minecraft.getInstance().keyboardHandler.setClipboard(BarakPvPTools.DISCORD_URL);
